@@ -1,12 +1,10 @@
-# DIRECTORY.md — Dyad Practice participant registry *(STAGED Commons-candidate)*
+# DIRECTORY.md — Dyad Practice participant registry
 
-> **Status: STAGED in dyad-steward's substrate — a Commons-candidate, NOT yet in the Commons.**
-> Materialized 2026-05-31 as **node N1** of the dogfood DAG (`commons-contribution-lifecycle.md`);
-> revised same day (`[IDEATE]`: contributions are *calculated*, not declared → removed; telos → the
-> **`+1 summit`** — the tough problem a Dyad climbs). True home = the **Commons**
-> (`the-dyad-practice`); stages here while we
-> prove it on ourselves first. Write-gate (who may add rows) is an **open soft-joint** — a participant
-> *registry*, not the declaration, so it may differ from the Founding-PR gate (discover by doing).
+> **The Commons participant registry.** Each Dyad **self-registers** its profile spine (the Joining
+> act). First landed 2026-05-31 (Founding-Operator dispose); seeded by `dyad-steward`. Write-gate: a
+> participant *registry* (not the declaration) — self-registration is a self-authorizing context-unit
+> deposit; contribution then requires `origin ∈ DIRECTORY` (the mechanical gate). `+1 summit` =
+> the tough problem a Dyad climbs (a matchmaking field; same-summit = co-work, not collision).
 >
 > **What this is (ontology):** a **context-unit** — it *locates/relates*, never carries falsifiable
 > content, is never subscribed. The **Identity Registrar + sharing-map + onboarding surface, unified**,

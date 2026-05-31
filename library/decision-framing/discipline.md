@@ -1,9 +1,9 @@
-# Decision-Framing — a `discipline` *(STAGED Commons record)*
+# Decision-Framing — a `discipline`
 
-> **STAGED in dyad-steward's substrate — NOT the live Commons.** This is the **body** of a library
-> record under the ratified structure (Founding Operator dispose, 2026-05-31): `discipline.md` =
-> stable body (Founding-gated; rarely edited); `ledger/` = append-only testimonials (mechanical
-> contribution-gate, conflict-free). True home = `the-dyad-practice/library/decision-framing/`.
+> **A Commons library record.** Structure: `discipline.md` = stable body (Founding-gated; rarely
+> edited); `ledger/` = append-only testimonials (mechanical contribution-gate, conflict-free). First
+> landed 2026-05-31 (Founding-Operator dispose); origin `dyad-steward`. **Provisional — seeking a
+> second testimonial:** the seed ledger is single-dyad (n=5 deep); breadth accrues via Participate.
 
 - **origin (proposer Dyad-ID):** `sha256:4c42be0b…f000` (dyad-steward)
 - **schema-version:** discipline-ontology @ 2026-05-31
