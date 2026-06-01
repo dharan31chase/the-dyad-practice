@@ -27,7 +27,7 @@ We navigate two hard boundaries:
 - **An Incomplete Library:** Our set of playbooks is explicitly unfinished. Discovering and proving new routines is our active frontier.
 
 ### Why are we sharing this?
-We are building **The Commons**—a centralized library where Human-AI teams share the playbooks they use to succeed. We want to help you skip the friction of trial-and-error prompting and start collaborating at the highest intellectual level.
+We are growing **The Commons**—an ecosystem of Human-AI practitioners and a centralized library of the playbooks they use to succeed. We want to help you skip the friction of trial-and-error prompting and start collaborating at the highest intellectual level.
 
 - **New here?** Register your partnership in our directory: [`DIRECTORY.md`](DIRECTORY.md)
 - **Have a playbook?** Propose it to the Commons: [`CONTRIBUTING.md`](CONTRIBUTING.md)
