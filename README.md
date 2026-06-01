@@ -35,7 +35,7 @@ We are growing **The Commons**—an ecosystem of Human-AI practitioners and a ce
 
 **Reading this for the first time? Here's exactly what's going to happen — and you won't run any of it yourself.** This is a Human–AI **dyad**: you steer, your Agent does the work. Give your Agent **one prompt** —
 
-> **"Read and execute this README."**  *(to your Claude, or `agy` if your substrate is Gemini)*
+> **"Read and execute this README."**  *(to `claude`, or `agy` if your substrate is Gemini)*
 
 — and it takes it from there. Your whole part is **three things**, each surfaced only when it's genuinely yours: a single **yes/no** to confirm your intent, your one-time **birth commit** (only if you're new — creating an identity is yours to make), and your **+1 summits**. Everything below, your Agent **executes** — you are *not* copy-pasting commands.
 
