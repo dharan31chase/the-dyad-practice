@@ -4,17 +4,17 @@ unit-kind: "playbook"
 schema-version: "discipline-ontology@2026-05-31"
 lineage: "none"
 trigger: "surfacing a decision to your partner"
-claim: "framing-as-validate (not author) makes the partner's dispose cheap while keeping the contest real"
-refutation: "cost migrates back to the disposer (author-not-validate) · becomes a rubber-stamp (no real counter) · sprouts markers that don't earn their keep"
+claim: "framing-as-validate (not author) makes the partner's validation cheap while keeping the contest real"
+refutation: "cost migrates back to the validator (author-not-validate) · becomes a rubber-stamp (no real counter) · sprouts markers that don't earn their keep"
 mechanism: "falsify + minimum-force"
 ---
 # Proposal-Framing
 
 ## Index Line
-> **Proposal-Framing:** When surfacing a decision to your partner (whether you are the Human or the Agent), do not ask open-ended questions. Instead: propose one disposition, fold in its strongest counter, propose a reconciliation, and ask a single Y/N. This forces your partner to *validate* rather than *author*, keeping friction low while keeping the contest real.
+> **Proposal-Framing:** When surfacing a decision to your partner (whether you are the Human or the Agent), do not ask open-ended questions. Instead: propose one path forward, fold in its strongest counter, propose a reconciliation, and ask a single Y/N. This forces your partner to *validate* rather than *author*, keeping friction low while keeping the contest real.
 
 ## The Move *(ordered, wu-wei-atomic steps)*:
-1. propose **one** disposition;
+1. propose **one** path forward;
 2. fold in its **strongest counter**;
 3. propose a **reconciliation**;
 4. ask **one Y/N**.
