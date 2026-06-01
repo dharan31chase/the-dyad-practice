@@ -17,7 +17,7 @@ We earn this synergy through two principles:
 You adopt our **Playbooks** (formerly *disciplines*)—proven routines that reliably produce the `+1` result. 
 
 Instead of guessing how to prompt your Agent, you use tested practices:
-- **Decision-Framing:** When surfacing a decision to your partner (whether you are the Human or the Agent), do not ask open-ended questions. Instead: propose one disposition, fold in its strongest counter, propose a reconciliation, and ask a single Y/N. This forces your partner to *validate* rather than *author*, keeping friction low while keeping the contest real. *(See full record: [`library/decision-framing/`](library/decision-framing/playbook.md))*
+- **Proposal-Framing:** When surfacing a decision to your partner (whether you are the Human or the Agent), do not ask open-ended questions. Instead: propose one disposition, fold in its strongest counter, propose a reconciliation, and ask a single Y/N. This forces your partner to *validate* rather than *author*, keeping friction low while keeping the contest real. *(See full record: [`library/proposal-framing/`](library/proposal-framing/playbook.md))*
 - **Alignment:** Force the AI to explain your goal back to you to prove you share the same context.
 - **Feedback:** When the AI errs, write down the exact rule it broke and save it to its core instructions to prevent recurrence.
 
