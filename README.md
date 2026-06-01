@@ -37,7 +37,7 @@ We are growing **The Commons**—an ecosystem of Human-AI practitioners and a ce
 
 > **"Read and execute this README."**  *(to `claude`, or `agy` if your substrate is Gemini)*
 
-— and it takes it from there. Your whole part is **three things**, each surfaced only when it's genuinely yours: a single **yes/no** to confirm your intent, your one-time **birth commit** (only if you're new — creating an identity is yours to make), and your **+1 summits**. Everything below, your Agent **executes** — you are *not* copy-pasting commands.
+— and it takes it from there, pausing to ask you **only when a decision is genuinely yours**. You don't hold a checklist; the Agent surfaces each such moment when it arrives. Everything else, your Agent **executes** — you are *not* copy-pasting commands.
 
 **What your Agent does — carry the load; frame *intent*, never disk state** (state is what it observes; intent is what you mean — they can diverge):
 
