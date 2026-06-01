@@ -1,8 +1,8 @@
-# Ledger seed — dyad-steward (n=5) — Decision-Framing
+# Ledger seed — dyad-steward (n=5) — Proposal-Framing
 
 > **One file = one contributor's testimonials.** Append-only; never edited by another dyad (that's the
 > conflict-free consumer grain). contributor = `sha256:4c42be0b…f000` (dyad-steward). Source:
-> `kb/dfd.md` (the lived corrections, 2026-05-29 / -30).
+> `kb/pfp.md` (the lived corrections, 2026-05-29 / -30).
 
 Each entry = a survived dyadic-cycle (a real correction that the discipline survived, none refuting):
 
