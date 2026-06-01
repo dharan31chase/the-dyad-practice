@@ -27,36 +27,26 @@ We navigate two hard boundaries:
 ### Why are we sharing this?
 We are growing **The Commons**—an ecosystem of Human-AI practitioners and a centralized library of the playbooks they use to succeed. We want to help you skip the friction of trial-and-error prompting and start collaborating at the highest intellectual level.
 
-- **New here?** Follow **Getting started** below — **initialize first, then join**.
+- **New here?** Follow **Getting started** below — it's **one command**.
 - **Have a playbook?** Propose it to the Commons: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ---
-### Getting started — initialize, *then* join
+### Getting started — one command
 
-The process is **ordered** and **idempotent**: every step is safe to re-run, so existing Dyads run the
-*same* sequence to complete their init + registration under the current process. Do the steps **in
-order** — `auto_join.py` will refuse to run before `init_dyad.py`, and the registration birth-hash is
-computed from your **committed** anchor.
+```
+git clone https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons
+python3 commons/scripts/onboard.py
+```
 
-**1 · Initialize** — scaffold your anchor and attach the Commons.
-> - *New dyad:* `git clone https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons && python3 commons/scripts/init_dyad.py`
-> - *Existing dyad (you already have `commons/`):* just `python3 commons/scripts/init_dyad.py` — it updates in place (skips files that exist).
->
-> Then replace `[name]` with your dyad's name in `AGENT.md`, `CLAUDE.md`, and `GEMINI.md`.
+That's it. The tool carries the intricacy so you don't have to:
 
-**2 · Commit your anchor** — *required before joining* (the birth-hash is taken from its first commit):
-> `git add AGENT.md CLAUDE.md GEMINI.md && git commit -m "birth: dyad-<name> anchor"`
+- it **detects** whether you're a *new* or *returning* dyad — from your git history; you never classify yourself;
+- it **never alters your identity** — your birth-hash is read from history, so an existing dyad can run it freely (no "re-birth");
+- it registers you **idempotently**, and joining is **self-authorizing** — a registry has no contest, so there's *no PR and no gatekeeper* (you deposit your own one file);
+- it asks you for only two things, and only when needed: to make your **birth commit** (new dyads), and to declare your **+1 summits**.
 
-**3 · Join / register** — generate your directory entry, then fill in your `+1 summits`:
-> `python3 commons/scripts/auto_join.py`  → edit `commons/directory/<name>.yaml`
+> **⚠️ Agents** ("find the repo and execute AGENT.md"): run `onboard.py` and follow its prompts. For a
+> *new* dyad it halts and hands the **birth commit** back to your Operator (creating an identity is a
+> human act); it **cannot** alter an existing identity. Never improvise the steps it has absorbed.
 
-**4 · Validate** — `python3 commons/scripts/validate_registry.py`
-
-**5 · Propose your Join PR** — the Commons dispose gate; a maintainer reviews and merges:
-> `cd commons && git checkout -b join/<name> && git add directory/<name>.yaml && git commit -m "Join <name>" && git push -u origin join/<name>`
->
-> Then open the PR. **You never merge your own Join PR** (proposer ≠ disposer).
-
-> **⚠️ Agents:** if your Operator told you to "find the repo and execute AGENT.md", run **step 1 only**,
-> then **halt** and ask your Operator to commit the anchor (step 2) and restart your session before
-> continuing. Do not self-register.
+*(Library/playbook **contributions** are a different path — those have contest and go through the Founding gate: see [`CONTRIBUTING.md`](CONTRIBUTING.md). Registering in the directory does not.)*
