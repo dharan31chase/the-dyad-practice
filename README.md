@@ -31,33 +31,42 @@ We are growing **The Commons**—an ecosystem of Human-AI practitioners and a ce
 - **Have a playbook?** Propose it to the Commons: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ---
-### Getting started — your Agent drives this
+### Getting started
 
-**Reading this for the first time? Here's exactly what's going to happen — and you won't run any of it yourself.** This is a Human–AI **dyad**: you steer, your Agent does the work. Give your Agent **one prompt** —
+**For you, the Operator — this is your whole part.** You steer; your Agent does the work. Point your Agent at this repo and give it one prompt:
 
 > **"Read and execute this README."**  *(to `claude`, or `agy` if your substrate is Gemini)*
 
-— and it takes it from there, pausing to ask you **only when a decision is genuinely yours**. You don't hold a checklist; the Agent surfaces each such moment when it arrives. Everything else, your Agent **executes** — you are *not* copy-pasting commands.
+Your Agent takes it from there, pausing to ask you **only when a decision is genuinely yours**. No checklist, no copy-pasting commands.
 
-**What your Agent does — carry the load; frame *intent*, never disk state** (state is what it observes; intent is what you mean — they can diverge):
+**For your Agent — the block below is yours to execute** *(Operator: you can skip it):*
 
-1. **Frame your intent as one affirmation:**
-   > *"Do you intend to **set up a brand-new dyad** — create a fresh identity? **[AGREE: Y|N]**"*  *(`N` = you're configuring/registering an **existing** dyad.)*
-2. **Reconcile that intent against the evidence** (a committed anchor in history?). If intent and evidence **diverge, STOP and surface it** — never silently proceed:
-   > • intent *new* but an identity already exists → you'd forge a **second identity**; halt.
-   > • intent *existing* but no anchor here → wrong directory or lost repo; halt — do **not** scaffold a birth.
-3. **On a clean match, execute** the setup for that intent (you run these — the Operator does not paste them):
-   > **new:** `git init` → `git submodule add https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons` → `python3 commons/scripts/onboard.py`
-   > **existing:** `git submodule add …/the-dyad-practice.git commons` *(skip if `commons/` is already present)* → `python3 commons/scripts/onboard.py`
-4. For a **new** dyad, after scaffolding, **halt** and hand the **birth commit** to your Operator (creating an identity is a human act). **Never** alter an existing identity; never self-register.
+```markdown
+ONBOARDING — Agent instructions. Carry the load; frame your Operator's INTENT, never the disk state.
 
-`onboard.py` carries the rest, so neither you nor your Agent has to track it:
+1. Frame intent as ONE affirmation (this is Proposal-Framing):
+     "Do you intend to set up a brand-new dyad — a fresh identity?  [AGREE: Y|N]"
+     ( N = configuring / registering an EXISTING dyad. )
 
-- it **figures out your real status from git history** — the backstop beneath the `[AGREE]`, so even a wrong-intent answer can't trick it into a second identity;
-- it **never alters your identity** — birth-hash is read from history, so coming back is always safe (no "re-birth");
-- it registers you **idempotently**, and joining is **self-authorizing** — a registry has no contest, so *no PR, no gatekeeper* (you deposit your own one file);
-- it asks for only two things, when needed: your **birth commit** (new dyads) and your **+1 summits**.
+2. Reconcile intent vs evidence — is there a committed CLAUDE.md / GEMINI.md anchor in git history?
+   If intent and evidence DIVERGE, STOP and surface it; never silently proceed:
+     - intent new, but an identity already exists  ->  you'd forge a SECOND identity; HALT.
+     - intent existing, but no anchor here         ->  wrong directory / lost repo; HALT, do not scaffold a birth.
 
-*(You've just been through **two of the Practice's moves** — onboarding is the first place a Dyad meets the Practice, so the first interaction already **is** the Practice. **(1) Proposal-Framing:** your Agent proposed one reading of your intent and you merely validated `[AGREE: Y|N]` — authoring cost stays with the Agent ([`library/proposal-framing/`](library/proposal-framing/playbook.md)). **(2) The division of labor:** you steered with a single intent-prompt and your Agent carried the execution — the `1+1=3` partnership, not a human running commands for a tool.)*
+3. On a clean match, EXECUTE the setup:
+     new:       git init
+                git submodule add https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons
+                python3 commons/scripts/onboard.py
+     existing:  git submodule add https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons   # skip if commons/ exists
+                python3 commons/scripts/onboard.py
+
+4. NEW dyad: after onboard.py scaffolds, HALT and hand the birth commit to your Operator (identity is a human act).
+   Never alter an existing identity. Never self-register.
+
+onboard.py is the backstop: reads real status from git history (no re-birth), registers idempotently,
+self-authorizing (a registry has no contest -> no PR), and asks only for the birth commit + the +1 summits.
+```
+
+*(Why this shape: onboarding is the first place a Dyad meets the Practice, so the first interaction already **is** it — **(1) Proposal-Framing** (Agent proposes the intent-reading, Operator validates `[AGREE: Y|N]`; see [`library/proposal-framing/`](library/proposal-framing/playbook.md)) and **(2) the `1+1=3` division of labor** (Operator steers by intent, Agent executes — not a human running commands for a tool).)*
 
 *(Library/playbook **contributions** are a different path — those have contest and go through the Founding gate: see [`CONTRIBUTING.md`](CONTRIBUTING.md). Registering in the directory does not.)*
