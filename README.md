@@ -39,7 +39,7 @@ order** — `auto_join.py` will refuse to run before `init_dyad.py`, and the reg
 computed from your **committed** anchor.
 
 **1 · Initialize** — scaffold your anchor and attach the Commons.
-> - *New dyad:* `git clone https://github.com/pltrinh1122/the-dyad-practice.git commons && python3 commons/scripts/init_dyad.py`
+> - *New dyad:* `git clone https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons && python3 commons/scripts/init_dyad.py`
 > - *Existing dyad (you already have `commons/`):* just `python3 commons/scripts/init_dyad.py` — it updates in place (skips files that exist).
 >
 > Then replace `[name]` with your dyad's name in `AGENT.md`, `CLAUDE.md`, and `GEMINI.md`.
