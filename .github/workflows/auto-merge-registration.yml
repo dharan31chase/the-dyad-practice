@@ -1,0 +1,86 @@
+# STAGED FOR THE COMMONS — install path: the-dyad-practice/.github/workflows/auto-merge-registration.yml
+# Authored by dyad-steward; INSTALLED BY THE FOUNDING OPERATOR (lives in protected .github/ — admin/bypass only).
+# Directive: {FO} "allow everyone to self-register to the directory" (2026-06-02).
+# Gate logic verified by execution (steward, 2026-06-02): only a pure single-entry add merges;
+# modify-existing / non-directory path / path-escape / validation-fail all route to human review.
+name: auto-merge-registration
+
+# Lets ANY GitHub account self-register WITHOUT an invite and WITHOUT a Founding-Operator merge.
+# A registry deposit has NO contest (CONTRIBUTING §1). A non-collaborator can only reach the repo by
+# fork-PR; this restores the "no human gate" intent by MERGING such a PR mechanically when — and only
+# when — it adds ONLY the author's own new directory/<name>.yaml and passes validation.
+#
+# FAIL-SAFE: it can only ever ADD a merge. A modified/deleted file, any non-`directory/` path, a
+# validation failure, or an error → the PR is left UNTOUCHED for human review (CONTRIBUTING §2). A bug
+# can only UNDER-merge, never wrongly merge.
+#
+# SAFETY: pull_request_target runs in base context with write perms but executes NO code from the PR —
+# it reads the diff + the new entry's YAML *data* via the API and runs the BASE-branch validate_registry.py.
+#
+# ONE-TIME SETUP (Founding Operator):
+#   Settings > Actions > General > Workflow permissions = "Read and write"
+#     + tick "Allow GitHub Actions to create and approve pull requests".
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    paths: ['directory/**']
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout BASE (trusted — never the PR head)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+
+      - name: Validate a pure registry deposit, then self-authorize
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          files_json=$(gh api "repos/$REPO/pulls/$PR/files" --paginate)
+
+          # GATE 1: every changed file must be an ADDED directory/<name>.yaml — nothing else.
+          bad=$(echo "$files_json" | jq -r '
+            .[] | select((.status != "added")
+              or (.filename | test("^directory/[^/]+\\.yaml$") | not)) | .filename')
+          if [ -n "$bad" ]; then
+            gh pr comment "$PR" --body "🤖 **Not a pure registry deposit** — touches: \`$bad\`.
+          A self-authorizing registration adds **only** your own new \`directory/<name>.yaml\` and nothing
+          else. Routed to human review (CONTRIBUTING §2)." || true
+            echo "::notice::not a pure deposit — left for human review"; exit 0
+          fi
+
+          # GATE 2: exactly one new entry per registration PR (bounds bulk-spam per PR).
+          n=$(echo "$files_json" | jq 'length')
+          if [ "$n" != "1" ]; then
+            gh pr comment "$PR" --body "🤖 A registration adds **one** entry per PR (this adds $n). Split them." || true
+            echo "::notice::not exactly one entry — left for human review"; exit 0
+          fi
+
+          # Materialize the new entry (DATA only) and validate ONLY THIS entry with the BASE validator.
+          # Per-entry (not whole-directory) so a stale/non-conforming legacy row can't wedge new
+          # registrations — a single bad row blocks only itself, never everyone else.
+          f=$(echo "$files_json" | jq -r '.[0].filename')
+          mkdir -p "$(dirname "$f")"
+          gh api "repos/$REPO/contents/$f?ref=$HEAD_SHA" --jq '.content' | base64 -d > "$f"
+          if ! python3 -c "import sys; sys.path.insert(0,'scripts'); from validate_registry import validate_file; sys.exit(0 if validate_file('$f') else 1)"; then
+            gh pr comment "$PR" --body "🤖 **Registry validation failed** — fix \`$f\` and push again; it re-checks and auto-merges." || true
+            echo "::notice::validation failed — left for author to fix"; exit 0
+          fi
+
+          # SELF-AUTHORIZE: merge with no human gate (a registry has no contest).
+          gh pr merge "$PR" --squash --delete-branch \
+            || gh pr merge "$PR" --squash \
+            || { echo "::error::merge blocked — enable 'Allow GitHub Actions to create and approve pull requests'"; exit 1; }
+          gh pr comment "$PR" --body "✅ **Self-authorizing registration** — validated and auto-merged, no contest, no human gate (CONTRIBUTING §1). Welcome to the directory." || true
